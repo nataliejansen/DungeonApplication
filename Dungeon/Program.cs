@@ -1,4 +1,7 @@
-﻿namespace Dungeon
+﻿using DungeonLibrary;
+using System.IO;
+
+namespace Dungeon
 {
     internal class Program
     {
@@ -8,7 +11,7 @@
 
             #region Title / Introduction
 
-            Console.Title = "DUNGEON OF DOOM";
+            Console.Title = "SOLAR SYSTEM";
 
             Console.WriteLine("Your journey begins...\n");
 
@@ -19,8 +22,12 @@
             int score = 0;
 
             //TODO Weapon Object to be created
+            Weapon sword = new Weapon(WeaponType.Sword, 8, "Long Sword", 10, false, 1);
+            Console.WriteLine(sword);//test the ToString()
 
             //TODO Player Object to be created
+            //Character test = new Character("Testy McTesterson",30,10,1000);
+           // Console.WriteLine(test);
 
 
 
@@ -30,9 +37,15 @@
 
             //Counter Variable- used in the condition of the loop
             bool exit = false;
+
+            //The air in the room is steamy.The room smells smoky. A loud drumming noise can be heard. EXAMPLE
+
+            
+            
+
             do
             {
-                //TODO Generate a random room the player will enter
+                Console.WriteLine(GetRoom());
 
                 //TODO Select a random monster to inhabit the room
 
@@ -111,7 +124,7 @@
                         default:
 
                             Console.WriteLine("That is not a valid option. Please try again.");
-                            break;  
+                            break;
 
                     }//end switch
 
@@ -124,7 +137,7 @@
 
                     #endregion
 
-                } while (!reload && !exit); 
+                } while (!reload && !exit);
 
                 #endregion
 
@@ -140,12 +153,35 @@
             #endregion
 
             //TODO Output the Final Score
-            Console.WriteLine("You defeated " + score + " monster" + ((score ==1) ? "!" : "s!"));
+            Console.WriteLine("You defeated " + score + " monster" + ((score == 1) ? "!" : "s!"));
 
 
             //Added this line to preserve the Console.Title
             Console.ReadKey();
 
         }//end Main()
+
+        private static string GetRoom()
+        {
+            string[] stellarObjects = {
+                "The Sun- Ouch! Don't look! Or get too close...",
+                "You've landed on the smallest planet. It's a scorching 800 degrees. Mercury",
+                "You landed on the hottest planet...Venus! The atmosphere is thick and the pressure is immense.",
+                "Back to Earth! Booming with life. Finally, a comfortable temperature.",
+                "Looks like Earth...kind of. The ground is red with mountains on the horizon. Mars",
+                "The largest of all! You start slowly sinking through the atmosphere without a surface in sight. Jupiter",
+                "Saturn. You see rings in the sky with a pale blue dot in the distance. Home seems so far away now...",
+                "Uranus. Blue-green gas is all around you.",
+                "Neptune. Dark blue and gaseous",
+                "Pluto. Not even a planet! We are in the Kuiper belt. It's cold and the Sun is just a tiny dot in the sky",
+                "Asteroid Belt. There's asteroids everywhere!",
+                "Kuiper Belt- There's icy objects everywhere!",
+                "Oort Cloud- Everything seems so far away and it feels like you're inside a bubble. There's some large, icy objects floating around you. "
+            };
+            Random rand = new Random();
+            return stellarObjects[rand.Next(stellarObjects.Length)];
+        
+
+        }//endGetRoom
     }//end class
 }//end namespace
