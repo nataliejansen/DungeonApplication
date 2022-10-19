@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using DungeonLibrary;
+using System.IO;
 
 namespace Dungeon
 {
@@ -21,8 +22,12 @@ namespace Dungeon
             int score = 0;
 
             //TODO Weapon Object to be created
+            Weapon sword = new Weapon(WeaponType.Sword, 8, "Long Sword", 10, false, 1);
+            Console.WriteLine(sword);//test the ToString()
 
             //TODO Player Object to be created
+            //Character test = new Character("Testy McTesterson",30,10,1000);
+           // Console.WriteLine(test);
 
 
 
@@ -175,8 +180,8 @@ namespace Dungeon
             };
             Random rand = new Random();
             return stellarObjects[rand.Next(stellarObjects.Length)];
-        }
+        
 
-    }//endGetRoom
+        }//endGetRoom
     }//end class
 }//end namespace
