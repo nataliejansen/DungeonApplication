@@ -11,6 +11,7 @@ namespace DungeonLibrary
         //FIELDS
         //MinDamage as an int - can't be more than MaxDamage, or less than 0
 
+
         //PROPERTIES
         //MinDamage as an int - can't be more than MaxDamage, or less than 0
         //MaxDamage as an int
