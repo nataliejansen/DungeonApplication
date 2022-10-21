@@ -23,16 +23,23 @@ namespace Dungeon
 
             //TODO Weapon Object to be created
             Weapon sword = new Weapon(WeaponType.Sword, 8, "Long Sword", 10, false, 1);
-            Console.WriteLine(sword);//test the ToString()
-
-            //TODO Player Object to be created
-            //Character test = new Character("Testy McTesterson",30,10,1000);
-           // Console.WriteLine(test);
+            //Console.WriteLine(sword);//test the ToString()
+            //Create a list of weapons, and either give the player a random weapon, let them pick a weapon, 
+            //or let them pick a WeaponType, and give them a weapon based off of that type.
 
 
 
 
-            //TODO Create the main game loop
+
+            #region Player Object Creation
+            Player player = new Player("Leeroy Jenkins", 70, 5, 40, Race.Elf, sword);
+            #endregion
+
+
+
+
+
+            // Create the main game loop
             #region Main Game Loop
 
             //Counter Variable- used in the condition of the loop
@@ -47,7 +54,9 @@ namespace Dungeon
             {
                 Console.WriteLine(GetRoom());
 
-                //TODO Select a random monster to inhabit the room
+                //Select a random monster to inhabit the room
+                Monster monster = Monster.GetMonster();
+                Console.WriteLine("On this planet..." +monster.Name);
 
                 //Create the gameplay menu loop
 
@@ -80,9 +89,28 @@ namespace Dungeon
                     {
                         case ConsoleKey.A:
 
-                            //TODO Combat
+                            // Combat
 
-                            Console.WriteLine("Attack!");
+
+                            Combat.DoBattle(player, monster);
+                            //Check if monster is dead
+                            if (monster.Life <= 0)
+                            {
+                                //Use green to indicate winning!
+                                Console.ForegroundColor = ConsoleColor.Green;
+
+                                //output the result
+                                Console.WriteLine($"\nYou killed {monster.Name}!");
+
+                                //Reset the color
+                                Console.ResetColor();
+
+                                //leave the inner loop
+                                reload = true;
+
+                                //update the score
+                                score++;
+                            }
 
                             break;
 
@@ -90,7 +118,12 @@ namespace Dungeon
 
                             //TODO Run Away - Attack of Opportunity
 
-                            Console.WriteLine("Run Away!");
+                            Console.WriteLine("Run Away!!!");
+
+                            //Monster gets an "attack of opportunity"
+                            Console.WriteLine(monster.Name + " attacks you as you flee!");
+                            Combat.DoAttack(monster, player);
+                            Console.WriteLine(); //for formatting
                             reload = true;
 
                             break;
@@ -99,15 +132,16 @@ namespace Dungeon
 
                             //TODO Player Stats
 
-                            Console.WriteLine("Player Info");
+                            Console.WriteLine(player);
 
                             break;
 
                         case ConsoleKey.M:
 
-                            //TODO Monster Stats
+                            //Monster Stats
 
                             Console.WriteLine("Monster Info");
+                            Console.WriteLine(monster);
                             break;
 
                         case ConsoleKey.X:
@@ -132,7 +166,13 @@ namespace Dungeon
 
                     #region Check Player's Life Total
 
-                    //TODO Check Player's Life
+                    //Check Player's Life
+
+                    if (player.Life <=0)
+                    {
+                        Console.WriteLine("Dude, you died! \a");
+                        exit = true;
+                    }
 
                     #endregion
 
