@@ -91,6 +91,7 @@ namespace Dungeon
                             //TODO Run Away - Attack of Opportunity
 
                             Console.WriteLine("Run Away!");
+                            reload = true;
 
                             break;
 
@@ -111,6 +112,7 @@ namespace Dungeon
 
                         case ConsoleKey.X:
                         case ConsoleKey.E:
+                        case ConsoleKey.Escape:
 
                             //Exit the game
 
