@@ -15,6 +15,7 @@ namespace DungeonLibrary
         //Race CharacterRace
         //EquippedWeapon Weapon
         //CONSTRUCTORS
+        
         public Player(string name, int hitChance, int block, int maxLife) : base(name, hitChance, block, maxLife)
         {
             //handle unique assignment
