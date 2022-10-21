@@ -13,7 +13,7 @@ namespace DungeonLibrary
 
        
 
-        public Vampire(string name, int maxLife, int hitChance, int block, int maxDamage, string description) 
+        public Vampire(string name, int maxLife, int hitChance, int block, int maxDamage, int minDamage, string description) 
             : base(name, maxLife, hitChance, block, maxDamage, minDamage, description)
         {
             HourChangeBack = DateTime.Now;
