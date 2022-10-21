@@ -11,7 +11,7 @@ namespace DungeonLibrary
 
         public bool IsScaly { get; set; }
 
-        public Dragon(string name, int MaxLife, int hitChance, int block, int maxDamage, int minDamage, 
+        public Dragon(string name, int maxLife, int hitChance, int block, int maxDamage, int minDamage, 
             string description, bool isScaly)
             : base (name, maxLife, hitChance, block, maxDamage, minDamage, description)
         {

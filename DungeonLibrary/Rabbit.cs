@@ -31,7 +31,7 @@ namespace DungeonLibrary
         }
         //Parent compliant (Monster) CTOR
         //Intellisense quick action on the Parent name in the class declaration
-        public Rabbit(string name, int maxLife, int block, //Character
+        public Rabbit(string name, int maxLife, int hitChance, int block, //Character
             int maxDamage, int minDamage, string description, //Monster
             bool isFluffy) //Rabbit
             : base(name, maxLife, hitChance, block, maxDamage, minDamage, description)
