@@ -13,7 +13,7 @@ namespace Dungeon
 
             Console.Title = "SOLAR SYSTEM";
 
-            Console.WriteLine("Your journey begins...\n");
+            Console.WriteLine("HELP! Our Solar Sytem is under attack! \n");
 
             #endregion
 
@@ -22,7 +22,12 @@ namespace Dungeon
             int score = 0;
 
             //TODO Weapon Object to be created
-            Weapon sword = new Weapon(WeaponType.Sword, 8, "Long Sword", 10, false, 1);
+            Weapon sword = new Weapon(WeaponType.Sword, 5, "Sword", 3, false, 1);
+            Weapon deathRay = new Weapon(WeaponType.DeathRay, 10, "Death Ray", 9, true, 5);
+            Weapon laserPistol = new Weapon(WeaponType.LaserPistol, 6, "Laser Pistol", 5, true, 3);
+            Weapon mindControl = new Weapon(WeaponType.MindControl, 10, "Mind Control", 5, false, 1);
+            Weapon shield = new Weapon(WeaponType.Shield, 3, "Shield", 1, false, 1);
+
             //Console.WriteLine(sword);//test the ToString()
             //Create a list of weapons, and either give the player a random weapon, let them pick a weapon, 
             //or let them pick a WeaponType, and give them a weapon based off of that type.
@@ -32,7 +37,42 @@ namespace Dungeon
 
 
             #region Player Object Creation
-            Player player = new Player("Leeroy Jenkins", 70, 5, 40, Race.Elf, sword);
+            Player player1 = new Player("Orion Jansen", 50, 5, 40, Race.Human, sword);
+            Player player2 = new Player("Melvin", 65, 6, 50, Race.GoodAlien, laserPistol);
+            Player player3 = new Player("Patrick", 70, 9, 75, Race.Consiousness, mindControl);
+            Player player4 = new Player("Codescar", 40, 4, 40, Race.Dog, shield);
+            Player player5 = new Player("Bella", 80, 8, 60, Race.Cat, deathRay);
+
+            List<Player> players = new List<Player>()
+            {
+                player1,
+                player2,
+                player3,
+                player4,
+                player5
+            };
+
+            Console.WriteLine("Please choose one of the characters below to help take back the Solar System. \nThe entire human race is counting on you!!!\n");
+
+            foreach (Player p in players)
+            {
+                Console.WriteLine($"{players.IndexOf(p) +1}) Name: {p.Name} \nRace: {p.CharacterRace} \nWeapon: {p.EquippedWeapon.Type} \n");
+
+                
+            }
+            
+
+            //int 
+            //Console.Read().ToInt
+            //Convert user input to  int
+            Console.WriteLine("Enter your character choice here...Quick! (1-5)");
+            int userInput = int.Parse(Console.ReadLine());
+            Player player = players[userInput - 1];
+
+
+
+            Console.Clear();
+            
             #endregion
 
 
@@ -45,10 +85,11 @@ namespace Dungeon
             //Counter Variable- used in the condition of the loop
             bool exit = false;
 
-            //The air in the room is steamy.The room smells smoky. A loud drumming noise can be heard. EXAMPLE
+        
 
             
-            
+
+
 
             do
             {
@@ -206,19 +247,17 @@ namespace Dungeon
         private static string GetRoom()
         {
             string[] stellarObjects = {
-                "The Sun- Ouch! Don't look! Or get too close...",
-                "You've landed on the smallest planet. It's a scorching 800 degrees. Mercury",
-                "You landed on the hottest planet...Venus! The atmosphere is thick and the pressure is immense.",
-                "Back to Earth! Booming with life. Finally, a comfortable temperature.",
-                "Looks like Earth...kind of. The ground is red with mountains on the horizon. Mars",
-                "The largest of all! You start slowly sinking through the atmosphere without a surface in sight. Jupiter",
-                "Saturn. You see rings in the sky with a pale blue dot in the distance. Home seems so far away now...",
-                "Uranus. Blue-green gas is all around you.",
-                "Neptune. Dark blue and gaseous",
-                "Pluto. Not even a planet! We are in the Kuiper belt. It's cold and the Sun is just a tiny dot in the sky",
-                "Asteroid Belt. There's asteroids everywhere!",
-                "Kuiper Belt- There's icy objects everywhere!",
-                "Oort Cloud- Everything seems so far away and it feels like you're inside a bubble. There's some large, icy objects floating around you. "
+                "The Sun- Ouch! Don't look! Or get too close...\n",
+                "You've landed on the Mercury. It's a scorching 800 degrees....and the Sun is so close!\n",
+                "You landed on the hottest planet...Venus! The atmosphere is thick and the pressure is immense.\n",
+                "Back to Earth! Booming with life. Finally, a comfortable temperature.....but evil is still lurking.\n",
+                "Looks like Earth...kind of. The ground is red with mountains on the horizon. You start looking for signs of life...\n",
+                "You're at Jupiter...the largest of all! You start slowly sinking through the atmosphere without a surface in sight. Thank goodness you didn't land in the Great Red Spot!\n",
+                "You've made it to Saturn. You see rings in the sky with a pale blue dot in the distance. Home seems so far away now...\n",
+                "Why is everything tilted 98 degrees? It seems as if everything is now sideways...You've reached Uranus.\n",
+                "Neptune. Dark blue and gaseous....watch out for the rainstorm of Diamonds!\n",
+                "It's cold here at Pluto and the Sun is just a tiny dot in the sky.....You feel the gravitational pull of Neptune and know you're not on an actual planet anymore...\n",
+               
             };
             Random rand = new Random();
             return stellarObjects[rand.Next(stellarObjects.Length)];

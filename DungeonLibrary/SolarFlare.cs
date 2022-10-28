@@ -6,34 +6,34 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Dragon : Monster
+    public class SolarFlare : Monster
     {
 
-        public bool IsScaly { get; set; }
+        public bool IsStrong { get; set; }
 
-        public Dragon(string name, int maxLife, int hitChance, int block, int maxDamage, int minDamage, 
-            string description, bool isScaly)
+        public SolarFlare(string name, int maxLife, int hitChance, int block, int maxDamage, int minDamage, 
+            string description, bool isStrong)
             : base (name, maxLife, hitChance, block, maxDamage, minDamage, description)
         {
-            IsScaly = isScaly;
+            IsStrong = isStrong;
         }
 
-        public Dragon()
+        public SolarFlare()
         {
             MaxLife = 6;
             MaxDamage = 3;
-            Name = "Baby dragon";
+            Name = "Small Solar Flare";
             Life = 6;
             HitChance = 25;
             Block = 20;
             MinDamage = 1;
-            Description = "A freshly-hatched baby dragon. It still looks dangerous...";
-            IsScaly = false;
+            Description = "Small- but still enough to disrupt communications on Earth. At least the auroras are pretty!";
+            IsStrong = false;
         }
 
         public override string ToString()
         {
-            return base.ToString() + "\n" + (IsScaly? "Coated in thick scales" : "Has a soft, underdeveloped hide"); 
+            return base.ToString() + "\n" + (IsStrong? "A powerful burst of energy" : "A short-lived increase in the intensity of the Sun's radiation"); 
         }
 
         public override int CalcBlock()
@@ -41,7 +41,7 @@ namespace DungeonLibrary
             //increase block by 50$
             int calculatedBlock = Block;
 
-            if (IsScaly)
+            if (IsStrong)
             {
                 calculatedBlock += calculatedBlock / 2;
             }

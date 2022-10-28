@@ -57,27 +57,27 @@
 
         public static Monster GetMonster()
         {
-            Rabbit rabbit = new Rabbit("White Rabbit",25,50,20,8,2, "That's no ordinary rabbit! Look at the bones!",
+            Alien alien = new Alien("\nAn Alien!",25,50,20,8,2, "Take me to your leader? As if! This alien just wants to take over the Milky Way...and will stop at nothing to do it!",
                 true);
-            Rabbit babyRabbit = new Rabbit();
+            Alien babyAlien = new Alien();
 
-            Vampire vampire = new Vampire("Dracula", 30, 70, 8, 1, 8, "The father of all the undead.");
+            AnotherAstronaut anotherAstronaut = new AnotherAstronaut("\nRonald Cruise", 30, 70, 8, 1, 8, "He's trying to take over the Solar Sytem for selfish gain...not make it a better place!");
 
-            Turtle turtle = new Turtle("Mikey",25,50,10,4,1, "He is no longer a teenager, but he is still a mutant turtle",3,10);
-            Turtle babyTurtle = new Turtle();
+            TentacleMonster tentMonster = new TentacleMonster("\nA Tentacle Monster",25,50,10,4,1, "Legand has it he was born underneath the ice on Jupiter's moon Europa. He somehow got here and is not happy about it...",3,10);
+            TentacleMonster babyTentMonster = new TentacleMonster();
 
-            Dragon dragon = new Dragon("Smaug", 35, 65, 20, 15, 1, "The last great dragon", isScaly: true);
-            Dragon babyDragon = new Dragon();
+            SolarFlare solarFlare = new SolarFlare("\nA Solar Flare!", 35, 65, 20, 15, 1, "SO. MUCH. RADIATION!!!", isStrong: true);
+            SolarFlare smallSolarFlare = new SolarFlare();
 
             List<Monster> monsters = new List<Monster>()
             {
-                rabbit,
-                babyRabbit, babyRabbit, babyRabbit,
-                vampire,
-                turtle,
-                babyTurtle, babyTurtle, babyTurtle,
-                dragon,
-                babyDragon,
+                alien,
+                babyAlien, babyAlien, babyAlien,
+                anotherAstronaut,
+                tentMonster,
+                babyTentMonster, babyTentMonster, babyTentMonster,
+                solarFlare,
+                smallSolarFlare,
             };
             int randomIndex = new Random().Next(monsters.Count);
             Monster monster = monsters[randomIndex];

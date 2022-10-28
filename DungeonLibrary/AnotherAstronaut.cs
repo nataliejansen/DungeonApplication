@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Vampire : Monster
+    public class AnotherAstronaut : Monster
     {
 
         public DateTime HourChangeBack { get; set; }
 
        
 
-        public Vampire(string name, int maxLife, int hitChance, int block, int maxDamage, int minDamage, string description) 
+        public AnotherAstronaut(string name, int maxLife, int hitChance, int block, int maxDamage, int minDamage, string description) 
             : base(name, maxLife, hitChance, block, maxDamage, minDamage, description)
         {
             HourChangeBack = DateTime.Now;

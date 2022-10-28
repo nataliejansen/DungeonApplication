@@ -6,37 +6,37 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Rabbit : Monster
+    public class Alien : Monster
     { 
 
         //FIELDS
 
         //PROPERTIES
-        public bool IsFluffy { get; set; }
+        public bool IsGreen { get; set; }
 
         //CONSTRUCTORS
         //Default CTOR to set some basic values for a generic monster of this type
 
-        public Rabbit()
+        public Alien()
         {
             MaxLife = 6;
             MaxDamage = 3;
-            Name = "Baby Rabbit";
+            Name = "Baby Alien";
             Life = MaxLife;
             HitChance = 20;
             Block = 20;
             MinDamage = 1;
-            Description = "It's just a cute little bunny...why would you hurt it?";
-            IsFluffy = false;
+            Description = "The baby alien doesn't even know what's going on!";
+            IsGreen = false;
         }
         //Parent compliant (Monster) CTOR
         //Intellisense quick action on the Parent name in the class declaration
-        public Rabbit(string name, int maxLife, int hitChance, int block, //Character
+        public Alien(string name, int maxLife, int hitChance, int block, //Character
             int maxDamage, int minDamage, string description, //Monster
-            bool isFluffy) //Rabbit
+            bool isGreen) 
             : base(name, maxLife, hitChance, block, maxDamage, minDamage, description)
         {
-            IsFluffy = isFluffy;
+            IsGreen = isGreen;
         }
 
 
@@ -44,7 +44,7 @@ namespace DungeonLibrary
 
         public override string ToString()
         {
-            return base.ToString() + (IsFluffy ? "It's fluffy" : "It's not so fluffy"); 
+            return base.ToString() + (IsGreen ? "It's green" : "It's not so green"); 
         }
 
         //Character CalcBlock 
@@ -54,8 +54,8 @@ namespace DungeonLibrary
         public override int CalcBlock()
         {
             int calculatedBlock = Block;
-            //Apply a 50% increase to the rabbit's if it's fluffy
-            if (IsFluffy)
+            //Apply a 50% increase to the alien's if it's green
+            if (IsGreen)
             {
                 calculatedBlock += calculatedBlock / 2;
             }

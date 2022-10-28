@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Turtle : Monster
+    public class TentacleMonster : Monster
     {
        
         public int BonusBlock { get; set; }
         public int HidePercent { get; set; }
 
-        public Turtle(string name, int maxLife, int hitChance, int block, int maxDamage, int minDamage, 
+        public TentacleMonster(string name, int maxLife, int hitChance, int block, int maxDamage, int minDamage, 
             string description, int bonusBlock, int hidePercent)
             : base(name, maxLife, hitChance, block, maxDamage, minDamage, description)
         {
@@ -23,7 +23,7 @@ namespace DungeonLibrary
 
         
 
-        public Turtle()
+        public TentacleMonster()
         {
             //SET MAX VALUES FIRST!
             MaxLife = 6;
@@ -32,9 +32,8 @@ namespace DungeonLibrary
             MinDamage = 0;
             HitChance = 5;
             Block = 10;
-            Name = "Baby Turtle";
-            Description = "It's a cute baby turtle... keep it " +
-                "away from the ooze.";
+            Name = "Baby Tentacle Monster";
+            Description = "Looks like an Octopus! Somehow kind of adorable...";
             BonusBlock = 5;
             HidePercent = 10;
 
@@ -52,7 +51,7 @@ namespace DungeonLibrary
             int percent = new Random().Next(101);
             if (HidePercent >= percent)
             {
-                //it's a success. Let the turtle hide!
+                //it's a success. Let the monster hide!
                 calculatedBlock += BonusBlock;
             }
             return calculatedBlock;

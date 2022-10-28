@@ -10,9 +10,9 @@ namespace DungeonLibrary
     {
         //We want the player's weapon type to be one of a preset list of options -----DO NOT ASSIGN VALUES----
         Sword,
-        Knife,
-        Projectile,
-        Magical,
-        Elemental
+        DeathRay,
+        LaserPistol,
+        MindControl,
+        Shield
     }
 }
