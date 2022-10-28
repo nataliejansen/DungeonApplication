@@ -21,4 +21,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DungeonLibrary\DungeonLibrary.csproj" />
+    <ProjectReference Include="..\Dungeon\Dungeon.csproj" />
+  </ItemGroup>
+
 </Project>
