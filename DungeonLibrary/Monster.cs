@@ -61,12 +61,12 @@
                 true);
             Alien babyAlien = new Alien();
 
-            AnotherAstronaut anotherAstronaut = new AnotherAstronaut("\nRonald Cruise", 30, 70, 8, 1, 8, "He's trying to take over the Solar Sytem for selfish gain...not make it a better place!");
+            AnotherAstronaut anotherAstronaut = new AnotherAstronaut("\nRonald Cruise , the evil astronaut", 30, 70, 8, 1, 8, "He's trying to take over the Solar Sytem for selfish gain...not make it a better place!");
 
-            TentacleMonster tentMonster = new TentacleMonster("\nA Tentacle Monster",25,50,10,4,1, "Legend has it he was born underneath the ice on Jupiter's moon Europa. He somehow got here and is not happy about it...",3,10);
+            TentacleMonster tentMonster = new TentacleMonster("\nA Tentacle Monster",25,80,10,4,1, "Legend has it he was born underneath the ice on Jupiter's moon Europa. He somehow got here and is not happy about it...",3,10);
             TentacleMonster babyTentMonster = new TentacleMonster();
 
-            SolarFlare solarFlare = new SolarFlare("\nA Solar Flare!", 35, 65, 20, 15, 1, "SO. MUCH. RADIATION!!!", isStrong: true);
+            SolarFlare solarFlare = new SolarFlare("\nA Solar Flare!", 80, 50, 10, 30, 9, "SO. MUCH. RADIATION!!!", isStrong: true);
             SolarFlare smallSolarFlare = new SolarFlare();
 
             List<Monster> monsters = new List<Monster>()
